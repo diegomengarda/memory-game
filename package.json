@@ -5,11 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "now-build": "vue-cli-service build"
   },
   "dependencies": {
     "core-js": "^2.6.5",
     "localforage": "^1.7.3",
+    "lodash": "^4.17.11",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
     "sweetalert2": "^8.8.5",

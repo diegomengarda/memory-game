@@ -1,8 +1,10 @@
 <script>
 import Card from './Card.vue'
 
-import { arrShuffle, cards } from '../helpers'
+import { cards } from '../utils/cards'
 import { setPlayerResults } from '../utils/storage'
+
+import { shuffle, cloneDeep } from 'lodash'
 
 import Swal from 'sweetalert2'
 
@@ -55,22 +57,19 @@ export default {
      */
     resetGame () {
       this.rounds = 0
-      this.clearSelection()
       this.loadCards()
+      this.clearSelection()
     },
     /**
      * Load the available cards and shuffle it
      */
     loadCards () {
       this.cards.splice(0)
-      // Create the array of cards
-      cards.forEach(item => {
-        this.cards.push({ ...item })
-        this.cards.push({ ...item })
-      })
-      // Random sort the list
-      this.cards = [...arrShuffle(this.cards)]
-      this.showCards = true
+      // Create the array of cards and randomize the list
+      setTimeout(() => {
+        this.cards = shuffle([...cloneDeep(cards), ...cloneDeep(cards)])
+        this.showCards = true
+      }, 100)
     },
     /**
      * Action on select a card
@@ -141,17 +140,15 @@ export default {
      * @returns {boolean}
      */
     checkSelection () {
-      let selectionMatch = false
       const first = this.cards[this.selection.first]
       const second = this.cards[this.selection.second]
+      console.log(first.label, second.label)
       if (first.label === second.label) {
         this.setSelectionDiscovered()
-        selectionMatch = true
       } else {
         first.opened = false
         second.opened = false
       }
-      return selectionMatch
     },
     /**
      * Set that the selection match's
@@ -166,12 +163,8 @@ export default {
      * Clear the selection
      */
     clearSelection () {
-      const first = this.cards[this.selection.first]
-      const second = this.cards[this.selection.second]
-      if (first && second) {
-        this.selection.first = null
-        this.selection.second = null
-      }
+      this.selection.first = null
+      this.selection.second = null
     }
   }
 }
@@ -204,16 +197,18 @@ export default {
                 </button>
             </template>
         </div>
-        <div class="cards_box" v-if="cards.length > 0 && showCards">
-            <div class="cards_box--wrapper"
-                 v-for="(item, index) in cards"
-                 :key="index"
-                 @click="selectCard(item, index)">
-                <card :key="index"
-                      :icon="item.icon"
-                      :opened="item.opened || item.discovered"
-                      :wrong-choose="item.wrongChoose"/>
-            </div>
+        <div class="cards_box">
+            <template v-if="cards.length > 0 && showCards">
+                <div class="cards_box--wrapper"
+                     v-for="(item, index) in cards"
+                     :key="index"
+                     @click="selectCard(item, index)">
+                    <card :key="index"
+                          :icon="item.icon"
+                          :opened="item.opened || item.discovered"
+                          :wrong-choose="item.wrongChoose"/>
+                </div>
+            </template>
         </div>
     </div>
 </template>
@@ -221,6 +216,7 @@ export default {
 <style lang="scss">
     .cards_box {
         width: 60vw;
+        min-height: 40vh;
         margin: 15px auto 0;
         display: flex;
         justify-content: space-between;

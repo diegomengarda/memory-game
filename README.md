@@ -1,4 +1,9 @@
-# db1-test
+# Memory Game
+
+## Online DEMO
+```
+npm install
+```
 
 ## Project setup
 ```

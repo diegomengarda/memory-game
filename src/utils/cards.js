@@ -1,23 +1,4 @@
 /**
- * Randomize a array
- * @param list
- * @returns {*}
- */
-export const arrShuffle = (list) => {
-  let ctr = list.length
-  let temp
-  let index
-  while (ctr > 0) {
-    index = Math.floor(Math.random() * ctr)
-    ctr--
-    temp = list[ctr]
-    list[ctr] = list[index]
-    list[index] = temp
-  }
-  return list
-}
-
-/**
  * List of available cards
  * @type {*[]}
  */
