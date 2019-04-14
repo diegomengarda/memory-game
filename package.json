@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "localforage": "^1.7.3",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "sweetalert2": "^8.8.5",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
