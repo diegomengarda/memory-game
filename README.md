@@ -3,6 +3,11 @@
 ## Online DEMO
 Link: **[Memory Game](https://vue-memory-game.netlify.com/)**
 
+## Dependencies
+```
+node and npm
+```
+
 ## Project setup
 ```
 npm install
