@@ -11,7 +11,7 @@ const storage = localForage.createInstance({ name: 'memory-game' })
  * @returns {Promise<Promise<any | never> | Array>}
  */
 export async function getPlayers () {
-  return storage.getItem('players').then(data => data) || []
+  return storage.getItem('players').then(data => data)
 }
 
 /**

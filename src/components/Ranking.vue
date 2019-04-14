@@ -10,7 +10,7 @@ export default {
   },
   async mounted () {
     // Get the list of player from storage
-    const players = await getPlayers()
+    const players = await getPlayers() || []
     // Sort the list of players by rounds
     this.players = [...players.sort((a, b) => {
       return (a.rounds < b.rounds) ? -1 : (a.rounds > b.rounds ? 1 : 0)
