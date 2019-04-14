@@ -26,5 +26,5 @@ export async function setPlayerResults (nickname, rounds) {
     players = []
   }
   players.push({ nickname, rounds })
-  storage.setItem('players', players)
+  return storage.setItem('players', players)
 }

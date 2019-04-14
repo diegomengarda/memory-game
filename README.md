@@ -1,16 +1,14 @@
 # Memory Game
 
 ## Online DEMO
-```
-npm install
-```
+Link: **[Memory Game](https://vue-memory-game.netlify.com/)**
 
 ## Project setup
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Test and development
 ```
 npm run serve
 ```

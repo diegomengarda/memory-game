@@ -76,7 +76,7 @@ export default {
      * @param card
      * @param index
      */
-    selectCard (card, index) {
+    async selectCard (card, index) {
       if (!card.opened && !card.discovered) {
         card.opened = true
         /**
@@ -111,7 +111,7 @@ export default {
         if (this.gameCompleted) {
           const vm = this
           const rounds = this.rounds
-          setTimeout(() => {
+          setTimeout(async () => {
             /**
              * Show de success message when the game is completed
              */
@@ -122,9 +122,9 @@ export default {
               showCancelButton: true,
               confirmButtonText: 'Nice, show me the ranking!',
               cancelButtonText: 'Play again'
-            }).then((result) => {
+            }).then(async (result) => {
               // Store the results in storage
-              setPlayerResults(vm.nickname, rounds)
+              await setPlayerResults(vm.nickname, rounds)
               if (result.value) {
                 vm.$router.push({ name: 'ranking' })
               } else {
