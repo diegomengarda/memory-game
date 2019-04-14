@@ -219,7 +219,7 @@ export default {
         min-height: 40vh;
         margin: 15px auto 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         flex-wrap: wrap;
     }
 
@@ -247,6 +247,34 @@ export default {
                 cursor: not-allowed;
                 pointer-events: none;
             }
+        }
+    }
+
+    @media all and (max-width: 1200px) {
+        .cards_box {
+            width: 80vw;
+        }
+    }
+
+    @media all and (max-width: 980px) {
+        .user_box {
+            text-align: center;
+            strong,
+            > .user_box--input,
+            > .user_box--button {
+                margin: 2px 5px;
+                display: inline-block;
+                width: 90%;
+            }
+        }
+        .cards_box {
+            width: 90vw;
+        }
+    }
+
+    @media all and (max-width: 768px) {
+        .cards_box {
+            width: 99vw;
         }
     }
 </style>

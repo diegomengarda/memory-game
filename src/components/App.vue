@@ -79,4 +79,22 @@
             align-items: center;
         }
     }
+
+    @media all and (max-width: 768px) {
+        #app {
+            > h1 {
+                font-size: 40px;
+            }
+
+            > #menu {
+                > ul {
+                    li {
+                        a {
+                            padding: 6px 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 </style>

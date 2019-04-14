@@ -114,4 +114,38 @@ export default {
             transform: translate3d(4px, 0, 0);
         }
     }
+
+    @media all and (max-width: 980px) {
+        .cards_box {
+            .cards_box--wrapper {
+                width: 19%;
+
+                .cards_box--item {
+                    > .cards_box--content {
+                        .cards_box--icon {
+                            font-size: 50px;
+                            line-height: 130px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media all and (max-width: 768px) {
+        .cards_box {
+            .cards_box--wrapper {
+                width: 32%;
+                min-height: 80px;
+
+                .cards_box--item {
+                    > .cards_box--content {
+                        .cards_box--icon {
+                            line-height: 80px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 </style>
