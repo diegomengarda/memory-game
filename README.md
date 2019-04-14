@@ -1,5 +1,7 @@
 # Memory Game
 
+This is a simple memory game build with VueJS
+
 ## Online DEMO
 Link: **[Memory Game](https://vue-memory-game.netlify.com/)**
 
